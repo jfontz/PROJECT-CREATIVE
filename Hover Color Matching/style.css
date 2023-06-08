@@ -1,0 +1,122 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+}
+
+/* To prevent the opacity change from affecting other elements within the body, an absolute-styled div was added. 
+This div is responsible for altering the opacity upon hovering a child element, ensuring that the opacity of the 
+body or other elements in the HTML file remains unaffected. */
+.background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fefefe;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.5s, transform 2s ease-out;
+    z-index: -99;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 500px;
+    aspect-ratio: 16 / 9;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.5s, transform 2s ease-out;
+    transition-delay: 10ms;
+}
+
+
+
+.parent>div {
+    border-radius: 10px;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.5s, transform 2s ease-out;
+    /* Transition for the color change of each div not(:hover) */
+}
+
+
+/* BG color of each div */
+.parent>div:nth-child(1) {
+    background-color: #084C61;
+}
+
+.parent>div:nth-child(2) {
+    background-color: #DB504A;
+}
+
+.parent>div:nth-child(3) {
+    background-color: #E3B505;
+}
+
+.parent>div:nth-child(4) {
+    background-color: #7C9082;
+}
+
+
+
+/* Enlarges the targeted div when hovered over and reduces the size of the other divs */
+.parent:has(div:nth-child(1):hover) {
+    grid-template-columns: 4fr 0.5fr 0.5fr 0.5fr;
+}
+
+.parent:has(div:nth-child(2):hover) {
+    grid-template-columns: 0.5fr 4fr 0.5fr 0.5fr;
+}
+
+.parent:has(div:nth-child(3):hover) {
+    grid-template-columns: 0.5fr 0.5fr 4fr 0.5fr;
+}
+
+.parent:has(div:nth-child(4):hover) {
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 4fr;
+}
+
+
+/* Lowers the opacity of non-hovered divs */
+.parent:hover>div:not(:hover) {
+    opacity: 0.5;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .parent {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: unset;
+        gap: 10px;
+        height: 400px;
+        margin: 20px;
+        aspect-ratio: 9 / 16;
+    }
+
+    .parent:has(div:nth-child(1):hover) {
+        grid-template-rows: 4fr 0.5fr 0.5fr 0.5fr;
+        grid-template-columns: unset;
+    }
+
+    .parent:has(div:nth-child(2):hover) {
+        grid-template-rows: 0.5fr 4fr 0.5fr 0.5fr;
+        grid-template-columns: unset;
+    }
+
+    .parent:has(div:nth-child(3):hover) {
+        grid-template-rows: 0.5fr 0.5fr 4fr 0.5fr;
+        grid-template-columns: unset;
+    }
+
+    .parent:has(div:nth-child(4):hover) {
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 4fr;
+        grid-template-columns: unset;
+    }
+}
