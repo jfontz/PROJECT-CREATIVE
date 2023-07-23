@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+
+.card {
+    width: 400px;
+    height: 220px;
+}
+
+.top {
+    position: relative;
+    left: -20px;
+    top: 20px;
+    height: 30%;
+    width: 100%;
+    background-color: #f9b294;
+    border: none;
+    z-index: 1;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 1s, transform 0.2s ease-out;
+    color: #4e4e4e;
+}
+
+.bot {
+    height: 70%;
+    width: 100%;
+    background-color: #335d7e;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 1s, transform 0.5s ease-out;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #f4f4f4;
+}
+
+.top:hover {
+    box-shadow: rgba(249, 178, 148, 0.4) 5px 5px, rgba(249, 178, 148, 0.3) 10px 10px, rgba(249, 178, 148, 0.2) 15px 15px, rgba(249, 178, 148, 0.1) 20px 20px, rgba(193, 108, 134, 0.05) 25px 25px;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 1s, transform 0.5s ease-out;
+    transform: translate(-5px, -5px);
+    cursor: pointer;
+}
+
+.top:hover~.bot {
+    transition: cubic-bezier(0.18, 0.89, 0.47, 1) 0.3s, transform 0.5s ease-out;
+    box-shadow: rgba(249, 178, 148, 1) 0px 190px 20px -20px inset;
+    color: #f9b294
+}
