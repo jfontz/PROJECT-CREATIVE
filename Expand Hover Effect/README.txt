@@ -6,3 +6,6 @@ This project creates an "expand hover effect" for a list of items. The effect is
 
 - HTML
 - CSS
+
+
+Hover effect inspired by: https://www.interwins.cl/nueva-radio-motorola-r7/
