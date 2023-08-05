@@ -1,0 +1,68 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    background-color: #fefefe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+li {
+    font-size: 1em;
+    font-family: 'Courier New', Courier;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 40px;
+    border: 1px solid #1e1e1e;
+    margin-bottom: 10px;
+}
+
+/* text layer */
+span {
+    z-index: 999;
+}
+
+/* hover effect initially hidden */
+li::after {
+    content: '';
+    width: 400px;
+    height: 0;
+    background: #1e1e1e;
+    position: absolute;
+    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.3s, transform 0.2s ease-out;
+}
+
+/* reveal the hover effect */
+li:hover::after {
+    height: 40px;
+}
+
+li:hover {
+    color: #fefefe;
+    cursor: pointer;
+}
+
+/* prevents text from being highlighted for design purposes */
+.no-select {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, supported by Chrome and Opera */
+}
