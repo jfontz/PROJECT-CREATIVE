@@ -1,0 +1,89 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  display: flex;
+}
+
+.container {
+  width: 500px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-c {
+  width: 80%;
+  background-color: transparent;
+  border: 2px solid white;
+  height: 20px;
+  padding: 2px 1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20px;
+  animation: popUp 2s forwards;
+}
+
+.bar {
+  border-radius: inherit;
+  width: 0;
+  height: 100%;
+  background-color: rgb(0 255 162);
+  animation: load 3s forwards;
+  animation-delay: 2s;
+}
+
+@keyframes popUp {
+  0% {
+    width: 0;
+    opacity: 0;
+    transform: translateY(90px);
+  }
+
+  20% {
+    transform: translateY(90px);
+  }
+
+  22% {
+    transform: translateY(20px);
+  }
+
+  69% {
+    opacity: 0;
+    width: 100%;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+    background-color: red;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  80% {
+    width: 80%;
+  }
+
+  100% {
+    width: 100%;
+    background-color: rgb(0 255 162);
+  }
+}
